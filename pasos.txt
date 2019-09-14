@@ -1,0 +1,48 @@
+
+1.- crear y acceder a la carpeta <taller01>
+· pasos para virtualizar
+·2.- crear entorno virtual 
+·    <taller01>/python3 -m venv env
+·3.- cambiar al entono python3
+·    <taller01>/which python3
+·4.- activar nuevo entorno
+·    <taller01>/source env/bin/activate
+5.- instalar framework
+    <taller01>/pip install django
+    <taller01>/pip install djangorestframework
+    <taller01>/pip install django-cors-headers
+6.- crear un proyecto 
+    <taller01>/django-admin startproject project1
+7.- accedermos al <taller01>/project1/project1
+    <project1> = <taller01>/project1/project1
+8.- crear un aplicativo 
+    <project1>/django-admin startapp app1
+9.- levantar el servidor
+    <taller01>/project1/python manage.py runserver
+10.- adicionamos las dependencias al django
+        setting.py
+            > INSTALLED_APPS
+                    > 'rest_framework', 'corsheaders'
+                    > 'project1.app1' # IMPORTANTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+11.- migramos la aplicacion
+        <project1>/python manage.py migrate
+        //eto crea la db en sqllite
+
+12.- Creamos el modelo libro
+models.py    
+class Libro(models.Model):
+    libro_id = models.AutoField(primary_key=True)
+    codigo = models.IntegerField()
+    autor = models.CharField(max_length=50)
+
+13.- creamos la migracion
+    <project1>/python manage.py makemigrations
+14.- aplicamos la migracion
+    <project1>/python manage.py migrate
+
+    
+
+
+
+
+
